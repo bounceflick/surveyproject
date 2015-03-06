@@ -1,4 +1,4 @@
-['/', '/survey/new', '/survey/create'].each do |route|
+['/survey/new', '/survey/create'].each do |route|
   before route do
     @user = User.find(session[:id])
   end
@@ -6,8 +6,8 @@ end
 
 get '/' do
   if session[:id]
-   # user = User.find(session[:id])
-    redirect "/user/#{@user.id}"
+    user = User.find(session[:id])
+    redirect "/user/#{user.id}"
   else
     erb :index
   end
@@ -30,7 +30,7 @@ end
 
 get '/surveys/:id' do
   @survey = Survey.find(params[:id])
-  @questions = Question.where(id: @survey.id)
+  @questions = @survey.questions
   erb :"survey/create"
 end
 
