@@ -64,6 +64,10 @@ $(document).ready(function() {
     deleteQuestion($(this));
   });
 
+  $("#addBtn").on("click", function(){
+    $(".create_question").toggle();
+  });
+
 });
 
   //Simple search:
