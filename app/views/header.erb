@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <% if session[:id] %>
+     <p>What's up</p>
+     <a href="/logout"><button>Logout</button></a>
+  <% else %>
+  <div class="row">
+    <form id="signin" action="/signin" method="post">
+      <input type="text" name="email" placeholder="email"/>
+      <input type="password" name="password_hash" placeholder="password"/>
+      <input type="submit" value="Sign In">
+    </form>
+    <a href="/signup">
+      <button>Sign Up</button>
+    </a>
+  </div>
+  <% end %>
+</nav>
