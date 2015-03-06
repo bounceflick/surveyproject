@@ -1,8 +1,7 @@
-  ;
-  var createQuestion = function () {
-    'use strict';
+ var createQuestion = function () {
     var route = $('.add-question').attr('action')
     var formData = $('.add-question').serialize()
+    $(".add-question").find("input[type='text']").val("")
     $.ajax({
       url: route,
       type: 'POST',
@@ -16,9 +15,24 @@
     .fail(function() {
       console.log("error");
     })
-    .always(function() {
-      console.log("complete");
-    });
+  };
+
+  var deleteQuestion = function(thisQuestion) {
+    var route = thisQuestion.attr('href');
+    var queId =
+    console.log(route)
+    $.ajax({
+      url: route,
+      type: 'DELETE',
+    })
+    .done(function(response) {
+      // console.log(response.id)
+      selector = "#" + response.id;
+      $(selector).remove();
+    })
+    .fail(function() {
+      console.log("error");
+    })
   };
 
 
@@ -45,9 +59,14 @@ $(document).ready(function() {
     createQuestion();
   });
 
+  $(".questionsList").on("click", ".deleteBtn", function(event){
+    event.preventDefault();
+    deleteQuestion($(this));
+  });
+
 });
-  
-  //Simple search: 
+
+  //Simple search:
     // $(".survey_list a").filter(function(item) {return !~$(this).text().indexOf(searchtext)}).parent().hide();
     // var searchtext = $(this).val();
     // console.log($(this).val());
