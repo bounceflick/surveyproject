@@ -3,11 +3,11 @@
      <p>What's up</p>
      <a href="/logout"><button>Logout</button></a>
   <% else %>
-  <div class="row">
+  <div class="row col-xs-3 col-md-3 col-lg-3 pull-right">
     <form id="signin" action="/signin" method="post">
-      <input type="text" name="email" placeholder="email"/>
-      <input type="password" name="password" placeholder="password"/>
-      <input type="submit" value="Sign In">
+      <input type="text" class="form-control" name="email" placeholder="email"/>
+      <input type="password" class="form-control" name="password" placeholder="password"/>
+      <input type="submit" class="btn btn-default" value="Sign In">
     </form>
     <a href="/signup">
       <button>Sign Up</button>

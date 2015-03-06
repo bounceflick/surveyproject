@@ -28,7 +28,7 @@ post '/signup' do
 end
 
 get '/logout' do
-  session[:id] = nil
+  session.clear
 
   redirect "/"
 end
