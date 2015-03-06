@@ -8,6 +8,6 @@ get '/user/:id' do
 end 
 
 get '/surveys/:id' do 
-  "You got to "
+  "You got to the survey page but we need an erb"
 end
 
