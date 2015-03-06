@@ -1,27 +1,6 @@
-;
-$(document).ready(function() {
-  'use strict';
-
-  $('#search').on('keyup', function() {
-    var fuzzySearchText = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$';
-    console.log(fuzzySearchText);
-    var reg = RegExp(fuzzySearchText, 'i');
-    var survey_title;
-    $(".survey_list a").parents().show();
-    $(".survey_list a").filter(function() {
-      survey_title = $(this).text().replace(/\s+/g, ' ');
-      return !reg.test(survey_title);}).parent().hide();
-
-  });
-  // event handler
-  // prevent default
-  // go to this ajax function
-  $("body").on("submit", ".create_question", function(event){
-    event.preventDefault();
-    createQuestion();
-  });
-
-  createQuestion = function () {
+  ;
+  var createQuestion = function () {
+    'use strict';
     var route = $('.add-question').attr('action')
     var formData = $('.add-question').serialize()
     $.ajax({
@@ -41,6 +20,30 @@ $(document).ready(function() {
       console.log("complete");
     });
   };
+
+
+$(document).ready(function() {
+  'use strict';
+
+  $('#search').on('keyup', function() {
+    var fuzzySearchText = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$';
+    console.log(fuzzySearchText);
+    var reg = RegExp(fuzzySearchText, 'i');
+    var survey_title;
+    $(".survey_list a").parents().show();
+    $(".survey_list a").filter(function() {
+      survey_title = $(this).text().replace(/\s+/g, ' ');
+      return !reg.test(survey_title);}).parent().hide();
+
+  });
+  // event handler
+  // prevent default
+  // go to this ajax function
+
+  $("body").on("submit", ".create_question", function(event){
+    event.preventDefault();
+    createQuestion();
+  });
 
 });
   
