@@ -3,6 +3,9 @@
     <h1><%= @survey.title %></h1>
   </div>
   <div class="row questionsList">
+    <% @questions.each do |question| %>
+      <%= erb :"survey/_question", locals: {question: question} %>
+    <% end %>
 
   </div>
   <div class="row create_question">
