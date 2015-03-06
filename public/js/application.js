@@ -1,7 +1,38 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  // event handler
+  // prevent default
+  // go to this ajax function
+  $("body").on("submit", ".create_question", function(event){
+    event.preventDefault();
+    createQuestion();
+  });
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+
+
+
+
+
+  createQuestion = function () {
+    var route = $('.add-question').attr('action')
+    var formData = $('.add-question').serialize()
+    $.ajax({
+      url: route,
+      type: 'POST',
+      data: formData,
+    })
+    .done(function(response) {
+      $('.questionsList').append(response)
+      $('#questions').replaceWith(formData.description)
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+  };
+
+
 });

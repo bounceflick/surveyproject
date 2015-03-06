@@ -7,7 +7,13 @@
       <a href="/surveys/<%=survey.id%>"><%=survey.title%></a>
     </li>
     <%end%>
-  </ul>  
+  </ul>
 
+  <div class="template">
+    <form id="surveyBuilder" action="/survey/create" method="post">
 
+      <input type="text" name="title" />
+      <input type="submit" value="Create Survey">
+    </form>
+  </div>
 </div>
