@@ -1,7 +1,12 @@
+;
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  'use strict';
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#search').on('keyup', function() {
+    var searchtext = $(this).val();
+    // console.log($(this).val());
+    $(".survey_list a").parents().show();
+    $(".survey_list a").filter(function(item) {return !~$(this).text().indexOf(searchtext)}).parent().hide();
+    // $(".survey_list a").filter(function(item) {console.log($(this).text().indexOf(searchtext))}).parent().hide();
+  });
 });
