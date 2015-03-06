@@ -21,7 +21,7 @@ post '/signup' do
 
   if @user.save
     session[:id] = @user.id
-    redirect "/" #change to user route
+    redirect "/user/#{@user.id}" #change to user route
   else
     redirect "/"
   end
