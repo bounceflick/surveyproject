@@ -1,8 +1,8 @@
   <div class="row display_questions">
     <ul>
       <li id="questions" contenteditable="true"><%= question.description %></li>
-      <input type="radio"> True
+      <input type="radio" name="questions[<%=question.id%>]" value="TRUE"> True
       <br>
-      <input type="radio"> False
+      <input type="radio" name="questions[<%=question.id%>]" value="FALSE"> False
     </ul>
   </div>
