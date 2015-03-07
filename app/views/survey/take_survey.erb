@@ -1,18 +1,19 @@
 <div class = "survey_questions">
   <h2>Your survey: </h2>
   <h3><%=@survey.title%></h3>
-  
+
   <div class="take_questions">
     <form action="/surveys/<%= @survey.id %>" method="post" class="take_survey">
       <input type="hidden" name="id" value="<%= @survey.id %>"/>
       <% @questions.each do |question| %>
       <%= erb :"survey/_question", locals: {question: question} %>
       <% end %>
-      <input type="submit" value="Submit"/>
+      <input id='takeSubmit' type="submit" value="Submit"/>
     </form>
   </div>
   <div>
 
   </div>
-  
+
 </div>
+
