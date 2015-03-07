@@ -1,6 +1,10 @@
-  <div class="row display_questions">
-    <ul>
-      <li id="questions" contenteditable="true"><%= question.description %></li>
+  <div id="<%= question.id  %>" class="row display_questions">
+    <ul id="listQuestions">
+      <li><%= question.description %>
+      <% if session[:id] == question.survey.creator_id %>
+        <span><a class="deleteBtn" href="/question/<%= question.id %>"><button>delete</button></a></span>
+      <% end %>
+      </li>
       <input type="radio"> True
       <br>
       <input type="radio"> False

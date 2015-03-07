@@ -2,3 +2,7 @@ form#signup input {
   margin: 10px;
   padding: 10px;
 }
+
+.create_question{
+  display: none;
+}
