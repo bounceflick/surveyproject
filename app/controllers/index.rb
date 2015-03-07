@@ -61,3 +61,24 @@ post '/surveys/:id/question/create' do
 
   erb :"survey/_question", locals: {question: question}, layout: false
 end
+
+get '/survey/:id/delete' do
+  survey = Survey.find(params[:id])
+  survey.destroy
+  redirect "/"
+end
+
+delete '/question/:id' do
+  question = Question.find(params[:id])
+  question.destroy
+  id = params[:id]
+  content_type :json
+  {id: id}.to_json
+end
+
+
+
+
+
+
+

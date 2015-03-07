@@ -8,6 +8,7 @@
     <% end %>
 
   </div>
+  <% if session[:id] == @survey.creator_id %>
   <div class="row create_question">
     <form action="/surveys/<%= @survey.id %>/question/create" method="post" class="add-question">
       <input type="text" name="description" placeholder="Question"/>
@@ -18,8 +19,14 @@
         <li>True</li>
         <li>False</li>
       </ul>
-      <a href="/complete/form"><button>Complete</button></a>
   </div>
+  <div class="row">
+      <a href="#"><button id="addBtn">Add</button></a>
+      <a href="/"><button>Edit</button></a>
+      <a href="/"><button>Complete</button></a>
+      <a href="/survey/<%=@survey.id%>/delete"><button>Delete Survey</button></a>
+  </div>
+  <% end %>
 </div>
 
 <div class="template">
